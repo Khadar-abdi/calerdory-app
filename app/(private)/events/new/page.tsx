@@ -1,19 +1,15 @@
-
-import FormEvent from "@/components/forms/FormEvent"
+import EventFrom from "@/components/forms/EventFrom";
 import {
   Card,
   CardContent,
   CardDescription,
-
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { auth } from "@clerk/nextjs/server"
-
-
+} from "@/components/ui/card";
+import { auth } from "@clerk/nextjs/server";
 
 const page = async () => {
-  const { userId, redirectToSignIn } = await auth()
+  const { userId, redirectToSignIn } = await auth();
   if (!userId) redirectToSignIn();
   return (
     <div className="">
@@ -23,13 +19,14 @@ const page = async () => {
           <CardDescription> Create a new event</CardDescription>
         </CardHeader>
         <CardContent>
-          <FormEvent />
+          {/* <FormEvent /> */}
+
+          {/* this is my form i have created without using shadcn form */}
+          <EventFrom />
         </CardContent>
-
       </Card>
-
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
